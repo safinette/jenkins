@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Application Spring Hibernate JSF</title>
+	<h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+
+<h:body>
+	<h1>Ajouter un stagiaire</h1>
+	<h:form>
+		<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+		<p:fieldset styleClass="greyBloc" legend="Identité" toggleable="true" toggleSpeed="500">
+			
+			<h:panelGrid  columns="3" width="300" border="0"> 
+				<h:outputLabel styleClass="label" for="name" value="Nom :" />
+				<p:inputText id="name" value="#{traineeView.trainee.name}"/>
+					
+				<br />
+				
+				<h:outputLabel styleClass="label" for="firstname" value="Prénom :" />
+				<p:inputText id="firstname" value="#{traineeView.trainee.firstname}"/>
+				
+				<br />
+				
+		      	<p:outputLabel styleClass="label" for="group" value="Groupe: " />
+		        <p:selectOneMenu id="group" value="#{traineeView.selectedGroupe}" effect="fold" editable="false">
+		            <f:selectItem itemLabel="Sélectionner un groupe" itemValue="" />
+		            <f:selectItems value="#{traineeView.availableGroupes}" />
+		        </p:selectOneMenu> 
+		        
+		        <br />
+				
+			</h:panelGrid>
+		</p:fieldset>
+		<p:fieldset styleClass="greyBloc" legend="Addresse" toggleable="true" toggleSpeed="500">
+		
+			<h:panelGrid  columns="3" width="300" border="0"> 
+				<h:outputLabel styleClass="label" for="number" value="Numéro :" />
+				<p:inputText id="number" value="#{traineeView.trainee.address.number}"/>
+				<br />
+				
+				<h:outputLabel styleClass="label" for="street" value="Rue :" />
+				<p:inputText id="street" value="#{traineeView.trainee.address.street}"/>
+				<br />
+				
+				<h:outputLabel styleClass="label" for="city" value="Ville :" />
+				<p:inputText id="city" value="#{traineeView.trainee.address.city}"/>
+				<br />
+				
+				<h:outputLabel styleClass="label" for="postalCode" value="Code postal :" />
+				<p:inputText id="postalCode" value="#{traineeView.trainee.address.postalCode}"/>
+				<br />
+			
+				<!--  TODO faire évoluer avec une liste déroulante des pays -->
+				<h:outputLabel styleClass="label" for="country" value="Pays :" />
+				<p:inputText id="country" value="#{traineeView.trainee.address.country}"/>
+				<br />
+			</h:panelGrid>
+				
+		</p:fieldset>
+		<br />
+		<p:commandButton styleClass="button" action="#{traineeView.register}" value="Ajouter"/>
+	</h:form>
+
+	<br />
+	
+	<p:fieldset id="listOfTrainees" styleClass="blocList" legend="Liste des stagiaires inscrits" > 
+				<p:dataTable var="trainee" value="${traineeService.listTrainees()}">
+		    			<p:column headerText="Nom">
+		        			<h:outputText value="#{trainee.id}" />
+		    			</p:column>
+		    			
+		    			<p:column headerText="Prénom">
+		        			<h:outputText value="#{trainee.firstname}" />
+		    			</p:column>
+		 
+		    			<p:column headerText="Nom">
+		        			<h:outputText value="#{trainee.name}" />
+		   	 			</p:column>
+			   	 		
+			   	 		<p:column headerText="Groupe">
+		        			<h:outputText value="#{trainee.groupe.name}" />
+		   	 			</p:column>
+				</p:dataTable>
+			<br />
+	</p:fieldset>
+</h:body>
+</html>

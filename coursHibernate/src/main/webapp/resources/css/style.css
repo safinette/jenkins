@@ -1,0 +1,51 @@
+.titre {
+	color:grey;
+	width: 65px;
+	font-family: "helvetica";
+	font-weight : bold;
+	font-weight : 800;
+	margin-left:365px;
+	margin-top: 15px;
+}
+
+.flag {
+	width: 30px;
+	height: 30px;	
+}
+
+.error {
+	color:red;
+	font-family: "helvetica";
+	font-size: 14px;
+	background-color: #90EE90;
+}
+
+.messages {
+	color:green;
+	font-family: "helvetica";
+	font-size: 14px;
+	background-color: #90EE90;
+}
+.greyBloc{
+	width: 500px;
+	margin-left:0px;
+	margin-bottom:20px;
+	margin-top:30px;
+	background-color: #e1dee4;
+	font-size: 18px;
+}
+
+.button{
+	margin-left:590px;
+	font-size: 14px;
+	color: black;
+}
+
+.label{
+	font-weight : bold;
+	word-break: break-all;
+	display: block;
+	width: 150px;
+}
+
+

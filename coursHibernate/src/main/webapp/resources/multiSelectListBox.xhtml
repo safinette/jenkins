@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Application Spring Hibernate JSF</title>
+	<h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+
+<h:body>
+	<h1>multiSelectListBox</h1>
+	<h:form>
+	    <p:multiSelectListbox value="#{multiSelectView.selection}" effect="slide" header="Categories" showHeaders="true">
+	        <f:selectItems value="#{multiSelectView.categories}" />
+	    </p:multiSelectListbox>
+	 
+	    <p:commandButton value="Save" icon="ui-icon-check" update="out" style="display:block;margin:10px 0" />
+	 
+	    <h:outputText id="out" value="Value: #{multiSelectView.selection}" style="display:block" />
+	</h:form>
+</h:body>
+</html>
