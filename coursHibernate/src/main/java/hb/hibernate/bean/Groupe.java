@@ -23,7 +23,7 @@ public class Groupe implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
 	
-	private Stringy name;
+	private String name;
 	
 	@OneToMany(mappedBy="groupe")
 	private Set<Trainee> trainees;
